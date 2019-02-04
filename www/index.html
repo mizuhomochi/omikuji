@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      var count = 0; // グローバル変数として宣言
+
+    function play(){
+
+      count++; // countを1加算
+
+      var no =Math.floor(Math.random()*5)
+    
+      var image_name;
+
+if (no == 0) {
+
+image_name = "daikichi2.png";
+
+} else if (no == 1) {
+
+image_name = "syoukichi2.png";
+
+} else if (no == 2) {
+
+image_name = "kyou2.png";
+
+} else if (no == 3) {
+
+image_name = "suekichi2.png";
+
+} else {
+
+image_name = "daikyou2.png";
+
+}
+
+alert("おみくじが出ました！さて結果は？");
+
+// alert(10 % 3); // 10を3で割ったあまり＝1が表示される
+
+// alert(10 % 5); // 10を5で割ったあまり＝0が表示される
+
+// 1秒間振動させる
+
+navigator.vibrate(1000);
+if(count%20 == 0){
+    image_name="super-rare.png"
+}
+
+document.getElementById("omikuji").src = "images/" + image_name;
+
+document.getElementById("playBtn").innerHTML="やり直す";
+}
+    </script>
+</head>
+<body>
+	<img src="images/omikuji-box.png" id="omikuji">
+    <button id="playBtn" onclick="play()">おみくじをひく</button>
+</body>
+</html>
